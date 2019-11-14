@@ -1,5 +1,20 @@
-# board
+board = ["-", "-", "-",
+         "-", "-", "-",
+         "-", "-", "-"]
+
+
+
+
+
+
+
+
+
+
+
 # game
-    # players turns
-    # check winner
-    # switch player
+# players turns
+# check winner
+ # check board
+ # check if tie
+# switch player
