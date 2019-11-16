@@ -2,6 +2,8 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
+current_player = "X"
+
 
 def show_board():
     print(board[0] + " | " + board[1] + " | " + board[2] + "\n" +
@@ -10,9 +12,17 @@ def show_board():
 
 
 show_board()
+
+
+def switch_players():
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    else:
+        current_player = "X"
+
 # game
 # players turns
 # check winner
 # check board
 # check if tie
-# switch player
