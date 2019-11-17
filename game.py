@@ -11,7 +11,8 @@ def show_board():
           board[6] + " | " + board[7] + " | " + board[8] + "\n")
 
 
-show_board()
+def insert_letter(letter, position):
+    board[position] = letter
 
 
 def switch_players():
@@ -21,8 +22,16 @@ def switch_players():
     else:
         current_player = "X"
 
-# game
-# players turns
-# check winner
-# check board
-# check if tie
+
+def check_if_win_or_tie():
+    pass
+
+
+def game():
+    show_board()
+    print("Welcome to Tic Tac Toe. X starts")
+    position = input(f"Please {current_player} pick position 1-9: ")
+    insert_letter(current_player, position)
+
+    # check if win or tie
+    switch_players()
