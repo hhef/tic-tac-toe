@@ -13,14 +13,6 @@ def show_board():
           board[6] + " | " + board[7] + " | " + board[8] + "\n")
 
 
-def insert_letter(letter, position):
-    board[position] = letter
-
-
-def empty_space(position):
-    return board[position] == "-"
-
-
 def switch_players():
     global current_player
     if current_player == "X":
@@ -102,11 +94,11 @@ def player_turn(player):
         while position not in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
             position = input("Invalid input, pick position 1-9: ")
         position = int(position) - 1
-        if empty_space(position):
+        if board[position] == "-":
             valid = True
         else:
             position = input("Space already taken, pick position 1-9: ")
-    insert_letter(player, position)
+    board[position] = player
     show_board()
 
 
