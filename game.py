@@ -3,12 +3,7 @@ board = ["-", "-", "-",
          "-", "-", "-"]
 
 current_player = "X"
-win_combination = [
-                   (),  # first column
-                   (board[1] == board[4] == board[7] != "-"),  # second column
-                   (),  # third column
-                   (),  # first across
-                   (]  # second across
+
 game_on = True
 winner = None
 
