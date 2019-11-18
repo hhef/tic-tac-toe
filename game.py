@@ -3,7 +3,6 @@ board = ["-", "-", "-",
          "-", "-", "-"]
 
 current_player = "X"
-
 game_on = True
 winner = None
 
@@ -92,12 +91,19 @@ def check_across():
             return board[2]
 
 
+def player_turn(player):
+    position = input(f"Please '{player}' pick position 1-9: ")
+    while position not in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+        position = input("Invalid input, pick position 1-9: ")
+    insert_letter(player, int(position) - 1)
+    show_board()
+
+
 def game():
+    show_board()
     print("Welcome to Tic Tac Toe. X starts")
     while game_on:
-        show_board()
-        position = input(f"Please {current_player} pick position 1-9: ")
-        insert_letter(current_player, int(position) - 1)
+        player_turn(current_player)
         check_if_win_or_tie()
         switch_players()
 
