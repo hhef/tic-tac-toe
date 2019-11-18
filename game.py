@@ -17,6 +17,10 @@ def insert_letter(letter, position):
     board[position] = letter
 
 
+def empty_space(position):
+    return board[position] == "-"
+
+
 def switch_players():
     global current_player
     if current_player == "X":
@@ -93,9 +97,16 @@ def check_across():
 
 def player_turn(player):
     position = input(f"Please '{player}' pick position 1-9: ")
-    while position not in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
-        position = input("Invalid input, pick position 1-9: ")
-    insert_letter(player, int(position) - 1)
+    valid = False
+    while not valid:
+        while position not in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+            position = input("Invalid input, pick position 1-9: ")
+        position = int(position) - 1
+        if empty_space(position):
+            valid = True
+        else:
+            position = input("Space already taken, pick position 1-9: ")
+    insert_letter(player, position)
     show_board()
 
 
@@ -106,6 +117,10 @@ def game():
         player_turn(current_player)
         check_if_win_or_tie()
         switch_players()
+    if winner is None:
+        print("It's a tie")
+    else:
+        print(f"Congratulations {winner}, you won")
 
 
 game()
